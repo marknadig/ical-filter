@@ -13,11 +13,29 @@ const jexl = require('jexl')
 
 jexl.addBinaryOp('like', 50, (left, right) => {
   if (right === undefined) {
-    // ToDo: I would like to throw an error, but this gets catched somewhere in the promise chain
+    // ToDo: I would like to throw an error, but this gets caught somewhere in the promise chain
     return new Error('try to add " around your search term')
   }
   const r = new RegExp(right, 'i')
   return r.test(left)
+})
+
+// Currently jexl library doesn't support =~ and !~
+jexl.addBinaryOp('match', 50, (left, right) => {
+  if (right === undefined) {
+    return new Error('try to add " around your search term')
+  }
+  const r = new RegExp(right)
+  return r.test(left)
+})
+
+// jexl not like 
+jexl.addBinaryOp('!match', 50, (left, right) => {
+  if (right === undefined) {
+    return new Error('try to add " around your search term')
+  }
+  const r = new RegExp(right)
+  return !r.test(left)
 })
 
 const config = require('./config')

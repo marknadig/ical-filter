@@ -1,35 +1,6 @@
 calendars:
-  machbar:
+  dayspring:
     url:
-      https://calendar.google.com/calendar/ical/j68lhv614hbv3u4ttbrs6glhpg%40group.calendar.google.com/public/basic.ics
-  machbar-repaircafe:
-    url:
-      https://calendar.google.com/calendar/ical/j68lhv614hbv3u4ttbrs6glhpg%40group.calendar.google.com/public/basic.ics
-    filter:
-      _text like "repair"
-    color:
-      grey
-  machbar-repaircafe-slb:
-    name:
-      "machBar on tour: repair-Café in der SLB Potsdam"
-    url:
-      https://calendar.google.com/calendar/ical/j68lhv614hbv3u4ttbrs6glhpg%40group.calendar.google.com/public/basic.ics
+      https://dayspringchristianchurch.ccbchurch.com/churchwide_calendar.ics?campus_id=1
     jexl:
-      location like "biblio" && description like "repair"
-    color:
-      red
-  machbar-repaircafe-tf:
-    name:
-      "machBar on tour: repair-Café im Treffpunkt Freizeit"
-    url:
-      https://calendar.google.com/calendar/ical/j68lhv614hbv3u4ttbrs6glhpg%40group.calendar.google.com/public/basic.ics
-    jexl:
-      ( location like "treff" ) && ( description like "repair" )
-    color:
-      blue
-rewrite:
-  google-webcal:
-    from:
-      https://calendar.google.com/calendar/embed?src=([^&]*)&(.*)
-    to:
-      https://calendar.google.com/calendar/ical/{1}/public/basic.ics
+      (summary != "Sunday School") && (summary != "Elders Meeting") && (summary !="Private Event") && (summary !match "HOA")
