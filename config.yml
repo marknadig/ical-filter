@@ -3,4 +3,4 @@ calendars:
     url:
       https://dayspringchristianchurch.ccbchurch.com/churchwide_calendar.ics?campus_id=1
     jexl:
-      (summary != "Sunday School") && (summary != "Elders Meeting") && (summary !="Private Event") && (summary !match "HOA")
+      (summary != "Sunday School") && (summary != "Elders Meeting") && (summary !="Private Event") && !("HOA" in summary)

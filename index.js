@@ -20,24 +20,6 @@ jexl.addBinaryOp('like', 50, (left, right) => {
   return r.test(left)
 })
 
-// Currently jexl library doesn't support =~ and !~
-jexl.addBinaryOp('match', 50, (left, right) => {
-  if (right === undefined) {
-    return new Error('try to add " around your search term')
-  }
-  const r = new RegExp(right)
-  return r.test(left)
-})
-
-// jexl not like 
-jexl.addBinaryOp('!match', 50, (left, right) => {
-  if (right === undefined) {
-    return new Error('try to add " around your search term')
-  }
-  const r = new RegExp(right)
-  return !r.test(left)
-})
-
 const config = require('./config')
 
 const app = decorateApp(express())
